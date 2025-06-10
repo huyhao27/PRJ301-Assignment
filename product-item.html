@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/styleassets.css" />
+</head>
+
+<body>
+
+    <div class="detail-container">
+        <div class="detail-top">
+            <div class="detail-image">
+                <!-- Ảnh sản phẩm -->
+            </div>
+            <div class="detail-info">
+                <div class="detail-name">Tên sản phẩm dài có thể chiếm hết chiều ngang của phần này để hiển thị đầy đủ
+                </div>
+                <div class="detail-price">149.000 đ</div>
+                <form class="detail-actions-form" method="post" action="ProductDetailServlet">
+                    <!-- Ẩn productId để gửi về server -->
+                    <input type="hidden" name="productId" value="123">
+
+                    <div class="detail-quantity-control">
+                        <button type="button" class="btn-decrease" onclick="changeQuantity(-1)">−</button>
+                        <input type="number" name="quantity" id="quantity" value="1" min="1" readonly>
+                        <button type="button" class="btn-increase" onclick="changeQuantity(1)">+</button>
+                    </div>
+
+                    <div class="detail-buttons">
+                        <button type="submit" name="action" value="addToCart" class="detail-btn-cart">🛒 Thêm vào
+                            giỏ</button>
+                        <button type="submit" name="action" value="buyNow" class="detail-btn-buy">Mua ngay</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="detail-seller-box">
+            <div class="detail-seller-avatar"></div>
+            <div class="detail-seller-info">
+                <strong>Username</strong><br>
+                1 Sản phẩm · 3 Sản phẩm đã bán
+            </div>
+            <div class="detail-seller-actions">
+                <button>Chat</button>
+                <button>Hồ sơ</button>
+            </div>
+        </div>
+
+        <div class="detail-box">
+            <h3>Chi tiết sản phẩm</h3>
+            <ul>
+                <li>Màu sắc: Trắng / Đen / Xám / Be / Hồng / Xanh Navy</li>
+                <li>Size: S / M / L / XL</li>
+                <li>Kiểu dáng: Oversized</li>
+            </ul>
+        </div>
+
+        <div class="detail-box">
+            <h3>Mô tả sản phẩm</h3>
+            <ul>
+                <li>Hạn chế phơi trực tiếp dưới ánh nắng mặt trời, nên phơi nơi thoáng mát.</li>
+                <li>Không dùng chất tẩy mạnh để giặt, tránh ảnh hưởng chất lượng sản phẩm.</li>
+                <li>100% giống mô tả, ảnh chụp thật của shop.</li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

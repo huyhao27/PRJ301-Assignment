@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/styleassets.css" />
+</head>
+
+<body>
+    <div class="filter-section">
+        <form action="filter" method="get">
+            <div class="selected-filters">
+                <div class="filter-title">
+                    <img src="./icon/bfilter.PNG" class="icon" />
+                    <span><strong> Bộ lọc</strong></span>
+                </div>
+                <button type="reset" class="reset-button">Bỏ hết</button>
+            </div>
+
+            <div class="filter-options">
+                <!-- Danh mục -->
+                <div class="filter-group">
+                    <button type="button" class="filter-toggle">Danh mục</button>
+                    <div class="filter-content checkbox-list">
+                        <label><input type="checkbox" name="category" value="ao"> Áo</label>
+                        <label><input type="checkbox" name="category" value="quan"> Quần</label>
+                        <label><input type="checkbox" name="category" value="giay"> Giày</label>
+                    </div>
+                </div>
+
+                <!-- Lọc theo giá -->
+                <div class="filter-group">
+                    <button type="button" class="filter-toggle">Lọc theo giá</button>
+                    <div class="filter-content price-filter">
+                        <input type="number" name="minPrice" placeholder="Giá từ"> -
+                        <input type="number" name="maxPrice" placeholder="đến">
+                        <button type="submit" class="icon-button">
+                            <img src="icon/filter.png" alt="Lọc">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sắp xếp -->
+                <div class="filter-group">
+                    <button type="button" class="filter-toggle">Sắp xếp</button>
+                    <div class="filter-content radio-list">
+                        <label><input type="radio" name="sort" value="default" checked> Mặc định</label>
+                        <label><input type="radio" name="sort" value="az"> A → Z</label>
+                        <label><input type="radio" name="sort" value="za"> Z → A</label>
+                        <label><input type="radio" name="sort" value="priceAsc"> Giá tăng dần</label>
+                        <label><input type="radio" name="sort" value="priceDesc"> Giá giảm dần</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <script>
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const applied = document.querySelector('.applied-filters');
+                    const span = document.createElement('span');
+                    span.textContent = item.textContent;
+                    applied.appendChild(span);
+                });
+            });
+
+            document.querySelector('.clear-all').addEventListener('click', () => {
+                document.querySelector('.applied-filters').innerHTML = '';
+            });
+        </script>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-list">
+        <div class="product-item">
+            <div class="product-img">
+                <img src="./image/products/ao.jpg" alt="Product">
+            </div>
+            <div class="product-info">
+                <h4 class="product-name">Áo NYC</h4>
+                <p class="product-price">100.000đ</p>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-img">
+                <img src="./image/products/folklore.png" alt="Product">
+            </div>
+            <div class="product-info">
+                <h4 class="product-name">Album folklore - Taylor Swift</h4>
+                <p class="product-price">120.000đ</p>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-img">
+                <img src="./image/products/tao.jpg" alt="Product">
+            </div>
+            <div class="product-info">
+                <h4 class="product-name">Táo Phú Sĩ</h4>
+                <p class="product-price">60.000đ</p>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-img">
+                <img src="./image/products/folklore.png" alt="Product">
+            </div>
+            <div class="product-info">
+                <h4 class="product-name">Album folklore - Taylor Swift</h4>
+                <p class="product-price">120.000đ</p>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-img">
+                <img src="./image/products/xe.jpg" alt="Product">
+            </div>
+            <div class="product-info">
+                <h4 class="product-name">Xe tải</h4>
+                <p class="product-price">120.000đ</p>
+            </div>
+        </div>
+
+        <!-- Thêm nhiều thẻ product-item nữa -->
+    </div>
+
+
+
+</body>
+
+</html>

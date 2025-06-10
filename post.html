@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/styleassets.css" />
+</head>
+
+<body>
+    <div class="post-card">
+        <div class="post-header">
+            <img src="icon/user.png" alt="avatar" class="post-avatar" />
+            <div class="user-info">
+                <div class="title">Title</div>
+                <div class="description">Description <span class="follow">• Theo dõi</span></div>
+            </div>
+        </div>
+
+        <div class="post-body">
+            <img src="./image/son.jpg" alt="posted image" class="post-img" />
+            <div class="post-text">Enter text here</div>
+        </div>
+
+        <div class="post-footer">
+            <img src="icon/heart.png" alt="like" class="post-icon heart-icon" onclick="toggleHeart(this)" />
+            <span>13</span>
+            <img src="icon/comment-alt.png" alt="comment" class="post-icon" onclick="showComments()" />
+            <span>13</span>
+            <img src="icon/bookmark.png" alt="save" class="post-icon bookmark-icon" onclick="toggleBookmark(this)" />
+        </div>
+
+        <!-- Overlay nền mờ -->
+        <div class="overlay hidden" onclick="closeComments()"></div>
+
+        <!-- Hộp bình luận popup -->
+        <div class="comment-popup hidden">
+            <div class="popup-header">
+                <strong>Bình luận</strong>
+                <button onclick="closeComments()">✖</button>
+            </div>
+
+            <div class="comment-list">
+                <div class="comment"><strong>User1:</strong> Hay quá!</div>
+                <div class="comment"><strong>User2:</strong> Tuyệt vời!</div>
+            </div>
+
+            <form class="comment-form" action="#" method="post">
+                <input type="text" name="comment" placeholder="Viết bình luận..." />
+                <button type="submit" class="send-button">
+                    <img src="./icon/paper-plane.png" alt="Send" />
+                </button>
+            </form>
+        </div>
+
+        <script>
+            function toggleHeart(img) {
+                img.classList.toggle("liked");
+                img.classList.add("animate");
+
+                setTimeout(() => {
+                    img.classList.remove("animate");
+                }, 200);
+            }
+            function toggleBookmark(img) {
+                img.classList.toggle("saved");
+                img.classList.add("animate");
+
+                setTimeout(() => {
+                    img.classList.remove("animate");
+                }, 200);
+            }
+
+            function showComments() {
+                document.querySelector('.overlay').classList.remove('hidden');
+                document.querySelector('.comment-popup').classList.remove('hidden');
+            }
+
+            function closeComments() {
+                document.querySelector('.overlay').classList.add('hidden');
+                document.querySelector('.comment-popup').classList.add('hidden');
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>
