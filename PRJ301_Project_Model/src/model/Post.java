@@ -4,7 +4,7 @@
  */
 package model;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  *
@@ -15,11 +15,11 @@ public class Post {
     private int userId;
     private String content;
     private String image;
-    private LocalDateTime createdAt;
+    private Timestamp createdAt;
 
     public Post() {}
 
-    public Post(int postId, int userId, String content, String image, LocalDateTime createdAt) {
+    public Post(int postId, int userId, String content, String image, Timestamp createdAt) {
         this.postId = postId;
         this.userId = userId;
         this.content = content;
@@ -59,11 +59,11 @@ public class Post {
         this.image = image;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
     

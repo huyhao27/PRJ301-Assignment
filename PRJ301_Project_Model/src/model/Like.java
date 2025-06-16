@@ -4,8 +4,7 @@
  */
 package model;
 
-import java.time.LocalDateTime;
-
+import java.sql.Timestamp;
 /**
  *
  * @author LENOVO
@@ -13,11 +12,11 @@ import java.time.LocalDateTime;
 public class Like {
     private int userId;
     private int postId;
-    private LocalDateTime likedAt;
+    private Timestamp likedAt;
 
     public Like() {}
 
-    public Like(int userId, int postId, LocalDateTime likedAt) {
+    public Like(int userId, int postId, Timestamp likedAt) {
         this.userId = userId;
         this.postId = postId;
         this.likedAt = likedAt;
@@ -39,11 +38,11 @@ public class Like {
         this.postId = postId;
     }
 
-    public LocalDateTime getLikedAt() {
+    public Timestamp getLikedAt() {
         return likedAt;
     }
 
-    public void setLikedAt(LocalDateTime likedAt) {
+    public void setLikedAt(Timestamp likedAt) {
         this.likedAt = likedAt;
     }
     

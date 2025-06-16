@@ -4,7 +4,7 @@
  */
 package model;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  *
@@ -20,13 +20,13 @@ public class Account {
     private String phone;
     private String avatar;
     private String role;
-    private LocalDateTime createdAt;
+    private Timestamp createdAt;
 
     public Account() {
     }
 
     public Account(int userId, String username, String password, String fullName, String email,
-            String phone, String avatar, String role, LocalDateTime createdAt) {
+            String phone, String avatar, String role, Timestamp createdAt) {
         this.userId = userId;
         this.username = username;
         this.password = password;
@@ -102,11 +102,11 @@ public class Account {
         this.role = role;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 

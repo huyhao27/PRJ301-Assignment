@@ -4,8 +4,8 @@
  */
 package model;
 
-import java.time.LocalDateTime;
 
+import java.sql.Timestamp;
 /**
  *
  * @author LENOVO
@@ -15,12 +15,12 @@ public class Notification {
     private int userId;
     private Integer postId;
     private String type;
-    private LocalDateTime createdAt;
+    private Timestamp createdAt;
 
     public Notification() {
     }
 
-    public Notification(int userId, Integer postId, String type, LocalDateTime createdAt) {
+    public Notification(int userId, Integer postId, String type, Timestamp createdAt) {
         this.userId = userId;
         this.postId = postId;
         this.type = type;
@@ -51,11 +51,11 @@ public class Notification {
         this.type = type;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
     

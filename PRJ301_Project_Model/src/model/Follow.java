@@ -4,7 +4,7 @@
  */
 package model;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  *
@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
 public class Follow {
     private int followerId;
     private int followingId;
-    private LocalDateTime followedAt;
+    private Timestamp followedAt;
 
     public Follow() {}
 
-    public Follow(int followerId, int followingId, LocalDateTime followedAt) {
+    public Follow(int followerId, int followingId, Timestamp followedAt) {
         this.followerId = followerId;
         this.followingId = followingId;
         this.followedAt = followedAt;
@@ -39,11 +39,11 @@ public class Follow {
         this.followingId = followingId;
     }
 
-    public LocalDateTime getFollowedAt() {
+    public Timestamp getFollowedAt() {
         return followedAt;
     }
 
-    public void setFollowedAt(LocalDateTime followedAt) {
+    public void setFollowedAt(Timestamp followedAt) {
         this.followedAt = followedAt;
     }
 
