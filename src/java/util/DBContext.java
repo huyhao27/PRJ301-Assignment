@@ -8,32 +8,28 @@ import java.util.logging.Logger;
 
 public class DBContext {
 
-    // Thay đổi thông tin kết nối để phù hợp với DBContext của bạn
-    private static final String USERNAME_DB = "sa"; // User của bạn
-    private static final String PASSWORD_DB = "12345"; // Password của bạn
-    // Chú ý: databaseName=SecondUniDB như trong DBContext của bạn
+    private static final String USERNAME_DB = "sa";    
+    private static final String PASSWORD_DB = "12345";
     private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=SecondUniDB;encrypt=true;trustServerCertificate=true;";
 
     public DBContext() {
         try {
-            // Đăng ký driver một lần khi khởi tạo DBContext
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "SQL Server JDBC Driver not found!", ex);
-            // Có thể throw RuntimeException ở đây nếu driver không tìm thấy, vì không thể tiếp tục
             throw new RuntimeException("Failed to load JDBC driver", ex);
         }
     }
 
     /**
-     * Cung cấp một đối tượng Connection mới mỗi khi được gọi.
-     * Điều này đảm bảo mỗi thao tác DAO sẽ có kết nối riêng và có thể được đóng an toàn.
-     * @return Một đối tượng Connection đã được mở.
-     * @throws SQLException Nếu có lỗi trong quá trình kết nối đến cơ sở dữ liệu.
+     * Provides a new Connection object each time it is called.
+     * This ensures each DAO operation has its own connection and can be safely closed.
+     * @return An open Connection object.
+     * @throws SQLException If there is an error connecting to the database.
      */
     public Connection getConnection() throws SQLException {
         Connection conn = DriverManager.getConnection(URL, USERNAME_DB, PASSWORD_DB);
-        // Có thể bỏ dòng này trong môi trường production để tránh log quá nhiều
+        // This line can be removed in a production environment to avoid excessive logging
         System.out.println("Connected successfully!");
         return conn;
     }

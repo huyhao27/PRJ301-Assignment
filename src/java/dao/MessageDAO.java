@@ -1,13 +1,14 @@
-import util.DBContext; // Import DBContext của bạn
+package dao; 
+
+import util.DBContext; 
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.logging.Level;
-import java.util.logging.Logger; // Import Logger
+import java.util.logging.Logger; 
 import model.Message;
 
 public class MessageDAO {
-    // Sử dụng instance của DBContext để lấy kết nối
     private DBContext dbContext;
 
     public MessageDAO() {
@@ -15,26 +16,26 @@ public class MessageDAO {
     }
 
     /**
-     * Lấy tất cả tin nhắn giữa hai người dùng (senderId và receiverId) theo cả hai chiều.
+     * Retrieves all messages between two specific users (senderId and receiverId) in both directions.
      *
-     * @param senderId   ID của người gửi.
-     * @param receiverId ID của người nhận.
-     * @return ArrayList chứa các đối tượng Message, hoặc một ArrayList rỗng nếu không có tin nhắn nào.
+     * @param senderId   The ID of the sender.
+     * @param receiverId The ID of the receiver.
+     * @return An ArrayList containing Message objects, or an empty ArrayList if no messages are found.
      */
     public ArrayList<Message> getMessagesBetweenUsers(int senderId, int receiverId) {
         ArrayList<Message> messages = new ArrayList<>();
-        // Truy vấn SQL để lấy tin nhắn giữa hai người dùng (A gửi B hoặc B gửi A), sắp xếp theo thời gian gửi
+        // SQL query to retrieve messages between two users (A sent to B or B sent to A), ordered by sent time
         String sql = "SELECT messageId, senderId, receiverId, content, sentAt FROM Messages " +
                      "WHERE (senderId = ? AND receiverId = ?) OR (senderId = ? AND receiverId = ?) " +
                      "ORDER BY sentAt ASC";
 
-        try (Connection conn = dbContext.getConnection(); // Lấy kết nối từ DBContext
+        try (Connection conn = dbContext.getConnection(); 
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, senderId);
             pstmt.setInt(2, receiverId);
-            pstmt.setInt(3, receiverId); // Đảo ngược để lấy tin nhắn từ người nhận gửi lại người gửi
-            pstmt.setInt(4, senderId);   // Đảo ngược
+            pstmt.setInt(3, receiverId); 
+            pstmt.setInt(4, senderId);  
 
             ResultSet rs = pstmt.executeQuery();
 
@@ -43,30 +44,28 @@ public class MessageDAO {
                 int msgSenderId = rs.getInt("senderId");
                 int msgReceiverId = rs.getInt("receiverId");
                 String content = rs.getString("content");
-                // Chuyển đổi Timestamp từ SQL sang LocalDateTime của Java 8+
+                // Convert Timestamp from SQL to Java 8+ LocalDateTime
                 LocalDateTime sentAt = rs.getTimestamp("sentAt").toLocalDateTime();
 
                 Message msg = new Message(messageId, msgSenderId, msgReceiverId, content, sentAt);
                 messages.add(msg);
             }
         } catch (SQLException e) {
-            Logger.getLogger(MessageDAO.class.getName()).log(Level.SEVERE, "Lỗi khi lấy tin nhắn giữa các người dùng", e);
+            Logger.getLogger(MessageDAO.class.getName()).log(Level.SEVERE, "Error retrieving messages between users", e);
         }
         return messages;
     }
 
     /**
-     * Gửi một tin nhắn mới vào cơ sở dữ liệu.
+     * Sends a new message into the database.
      *
-     * @param msg Đối tượng Message chứa thông tin tin nhắn (senderId, receiverId, content).
-     * @return true nếu tin nhắn được gửi thành công, false nếu có lỗi.
+     * @param msg The Message object containing message information (senderId, receiverId, content).
+     * @return true if the message was sent successfully, false if an error occurred.
      */
     public boolean sendMessage(Message msg) {
-        // Truy vấn SQL để thêm tin nhắn mới.
-        // sentAt được đặt mặc định là GETDATE() trong DB, nên không cần truyền vào đây.
         String sql = "INSERT INTO Messages (senderId, receiverId, content) VALUES (?, ?, ?)";
 
-        try (Connection conn = dbContext.getConnection(); // Lấy kết nối từ DBContext
+        try (Connection conn = dbContext.getConnection(); 
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, msg.getSenderId());
@@ -74,29 +73,29 @@ public class MessageDAO {
             pstmt.setString(3, msg.getContent());
 
             int affectedRows = pstmt.executeUpdate();
-            return affectedRows > 0; // Trả về true nếu có ít nhất một hàng bị ảnh hưởng (đã chèn thành công)
+            return affectedRows > 0; 
 
         } catch (SQLException e) {
-            Logger.getLogger(MessageDAO.class.getName()).log(Level.SEVERE, "Lỗi khi gửi tin nhắn", e);
+            Logger.getLogger(MessageDAO.class.getName()).log(Level.SEVERE, "Error sending message", e);
             return false;
         }
     }
 
     /**
-     * Lấy tất cả tin nhắn liên quan đến một người dùng cụ thể (người đó là người gửi hoặc người nhận).
-     * Điều này có thể được dùng để hiển thị hộp thư đến hoặc tất cả các cuộc hội thoại của người dùng.
+     * Retrieves all messages related to a specific user (where the user is either the sender or the receiver).
+     * This can be used to display a user's inbox or all their conversations.
      *
-     * @param userId ID của người dùng.
-     * @return ArrayList chứa các đối tượng Message, hoặc một ArrayList rỗng nếu không có tin nhắn nào.
+     * @param userId The ID of the user.
+     * @return An ArrayList containing Message objects, or an empty ArrayList if no messages are found.
      */
     public ArrayList<Message> getInboxByUser(int userId) {
         ArrayList<Message> messages = new ArrayList<>();
-        // Truy vấn SQL để lấy tin nhắn mà người dùng là sender hoặc receiver, sắp xếp theo thời gian
+        // SQL query to retrieve messages where the user is either the sender or receiver, ordered by time
         String sql = "SELECT messageId, senderId, receiverId, content, sentAt FROM Messages " +
                      "WHERE senderId = ? OR receiverId = ? " +
-                     "ORDER BY sentAt DESC"; // Sắp xếp giảm dần để tin nhắn mới nhất lên đầu
+                     "ORDER BY sentAt DESC"; // Order in descending order for most recent messages first
 
-        try (Connection conn = dbContext.getConnection(); // Lấy kết nối từ DBContext
+        try (Connection conn = dbContext.getConnection(); 
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, userId);
@@ -115,7 +114,7 @@ public class MessageDAO {
                 messages.add(msg);
             }
         } catch (SQLException e) {
-            Logger.getLogger(MessageDAO.class.getName()).log(Level.SEVERE, "Lỗi khi lấy hộp thư đến của người dùng", e);
+            Logger.getLogger(MessageDAO.class.getName()).log(Level.SEVERE, "Error retrieving user inbox", e);
         }
         return messages;
     }
