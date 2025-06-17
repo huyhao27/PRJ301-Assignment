@@ -5,15 +5,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>SecondUni - Login</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/login.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/global.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/responsive.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/icon/themify-icons/themify-icons.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/login.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/global.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/responsive.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/icon/themify-icons/themify-icons.css">
 
     </head>
     <body>
         <div class="container">
-            <img class="logo" src="${pageContext.request.contextPath}/asset/images/Logo_Deleted_Background.png" alt="Logo" />
+            <img class="logo" src="${pageContext.request.contextPath}/view/assets/images/logo/Logo_Deleted_Background.png" alt="Logo" />
 <!--            <div >
                 <a href="#" class="home-btn">
                     <i class="ti-home"></i>
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="login-signup">
-                    Bạn chưa có tài khoản? <a href="signup.jsp">Đăng ký</a>
+                    Bạn chưa có tài khoản? <a href="/view/signup.jsp">Đăng ký</a>
                 </div>
             </div>
         </div>

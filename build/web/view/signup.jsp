@@ -8,15 +8,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SecondUni - SignUp</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/signup.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/global.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/responsive.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/font/themify-icons/themify-icons.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/login.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/global.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/responsive.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/icon/themify-icons/themify-icons.css">
     </head>
 
     <body>
         <div class="container">
-            <img class="logo" src="${pageContext.request.contextPath}/asset/images/Logo_Deleted_Background.png" alt="Logo" />
+            <img class="logo" src="${pageContext.request.contextPath}/view/assets/images/logo/Logo_Deleted_Background.png" alt="Logo" />
 <!--            <div >
                 <a href="changepass.jsp" class="home-btn">
                     <i class="ti-home"></i>
