@@ -1,0 +1,917 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.desktop {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.desktop .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 1440px;
+  height: 1024px;
+  position: relative;
+}
+
+.desktop .overlap {
+  position: absolute;
+  width: 1738px;
+  height: 195px;
+  top: -31px;
+  left: -5px;
+  background-color: #000000;
+}
+
+.desktop .logo-deleted {
+  position: absolute;
+  width: 238px;
+  height: 77px;
+  top: 69px;
+  left: 35px;
+  object-fit: cover;
+}
+
+.desktop .container-search {
+  display: flex;
+  width: 666px;
+  height: 46px;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 12px 8px 8px;
+  position: absolute;
+  top: 81px;
+  left: 308px;
+  background-color: var(--main-white);
+  border-radius: 50px;
+  transform: rotate(0.10deg);
+}
+
+.desktop .text-wrapper {
+  position: relative;
+  flex: 1;
+  font-family: var(--body-texts-text-1-font-family);
+  font-weight: var(--body-texts-text-1-font-weight);
+  color: var(--color-text-subtext);
+  font-size: var(--body-texts-text-1-font-size);
+  letter-spacing: var(--body-texts-text-1-letter-spacing);
+  line-height: var(--body-texts-text-1-line-height);
+  font-style: var(--body-texts-text-1-font-style);
+}
+
+.desktop .search-alt-duotone {
+  position: relative;
+  width: 24.03px;
+  height: 24.04px;
+  margin-right: -0.02px;
+  transform: rotate(-0.10deg);
+}
+
+.desktop .element-avatars {
+  position: absolute;
+  width: 67px;
+  height: 67px;
+  top: 73px;
+  left: 1317px;
+  background-image: url(./img/3d-avatar-13.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.desktop .shopping-cart {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 93px;
+  left: 1034px;
+}
+
+.desktop .bell {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 93px;
+  left: 1179px;
+}
+
+.desktop .text-wrapper-2 {
+  width: 43px;
+  top: 98px;
+  left: 1080px;
+  color: #ffffff;
+  font-size: 20px;
+  position: absolute;
+  height: 23px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.desktop .overlap-group {
+  position: absolute;
+  width: 1446px;
+  height: 855px;
+  top: 169px;
+  left: -6px;
+}
+
+.desktop .overlap-2 {
+  position: absolute;
+  width: 348px;
+  height: 759px;
+  top: 96px;
+  left: 1098px;
+}
+
+.desktop .rectangle {
+  position: absolute;
+  width: 260px;
+  height: 759px;
+  top: 0;
+  left: 88px;
+}
+
+.desktop .text-wrapper-3 {
+  position: absolute;
+  width: 134px;
+  height: 30px;
+  top: 41px;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+}
+
+.desktop .group {
+  position: absolute;
+  width: 134px;
+  height: 55px;
+  top: 679px;
+  left: 200px;
+}
+
+.desktop .group-wrapper {
+  height: 55px;
+}
+
+.desktop .div-wrapper {
+  width: 134px;
+  height: 55px;
+}
+
+.desktop .overlap-group-wrapper {
+  width: 136px;
+  height: 55px;
+}
+
+.desktop .overlap-group-2 {
+  position: relative;
+  width: 134px;
+  height: 55px;
+  background-color: #cbcbcb;
+  border-radius: 20px;
+}
+
+.desktop .text-wrapper-4 {
+  position: absolute;
+  width: 67px;
+  top: 15px;
+  left: 58px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .overlap-group-3 {
+  position: relative;
+  width: 134px;
+  height: 55px;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.desktop .group-2 {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 692px;
+  left: 214px;
+  background-image: url(./img/material-symbols-chat-outline-rounded.svg);
+  background-size: 100% 100%;
+}
+
+.desktop .text-wrapper-5 {
+  position: absolute;
+  width: 128px;
+  height: 23px;
+  top: 42px;
+  left: 117px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.desktop .avatar-block {
+  display: flex;
+  width: 139px;
+  align-items: flex-start;
+  gap: 12px;
+  position: absolute;
+  top: 138px;
+  left: 104px;
+}
+
+.desktop .avatar {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-image: url(./img/shape.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.desktop .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.desktop .text-wrapper-6 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family: var(--body-strong-font-family);
+  font-weight: var(--body-strong-font-weight);
+  color: #757575;
+  font-size: var(--body-strong-font-size);
+  letter-spacing: var(--body-strong-letter-spacing);
+  line-height: var(--body-strong-line-height);
+  font-style: var(--body-strong-font-style);
+}
+
+.desktop .text-wrapper-7 {
+  position: relative;
+  align-self: stretch;
+  font-family: var(--body-base-font-family);
+  font-weight: var(--body-base-font-weight);
+  color: #b3b3b3;
+  font-size: var(--body-base-font-size);
+  letter-spacing: var(--body-base-letter-spacing);
+  line-height: var(--body-base-line-height);
+  font-style: var(--body-base-font-style);
+}
+
+.desktop .avatar-block-2 {
+  width: 139px;
+  top: 203px;
+  left: 104px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: absolute;
+}
+
+.desktop .avatar-2 {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-image: url(./img/shape-2.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.desktop .avatar-block-3 {
+  width: 139px;
+  top: 268px;
+  left: 104px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: absolute;
+}
+
+.desktop .avatar-3 {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-image: url(./img/shape-3.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.desktop .overlap-3 {
+  position: absolute;
+  width: 1446px;
+  height: 855px;
+  top: 0;
+  left: 0;
+}
+
+.desktop .rectangle-2 {
+  position: absolute;
+  width: 1158px;
+  height: 3px;
+  top: 93px;
+  left: 288px;
+  background-color: #000000;
+}
+
+.desktop .rectangle-3 {
+  position: absolute;
+  width: 289px;
+  height: 855px;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  border-radius: 0px 30px 30px 0px;
+}
+
+.desktop .home {
+  position: absolute;
+  width: 32px;
+  height: 30px;
+  top: 77px;
+  left: 53px;
+}
+
+.desktop .text-wrapper-8 {
+  position: absolute;
+  width: 153px;
+  height: 23px;
+  top: 80px;
+  left: 107px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 24px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.desktop .shopping-bag {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 164px;
+  left: 55px;
+}
+
+.desktop .text-wrapper-9 {
+  position: absolute;
+  width: 128px;
+  height: 23px;
+  top: 167px;
+  left: 107px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 24px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.desktop .user {
+  position: absolute;
+  width: 29px;
+  height: 29px;
+  top: 252px;
+  left: 54px;
+}
+
+.desktop .text-wrapper-10 {
+  position: absolute;
+  width: 88px;
+  height: 23px;
+  top: 254px;
+  left: 109px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 24px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.desktop .settings {
+  position: absolute;
+  width: 29px;
+  height: 29px;
+  top: 342px;
+  left: 55px;
+}
+
+.desktop .text-wrapper-11 {
+  position: absolute;
+  width: 142px;
+  height: 23px;
+  top: 344px;
+  left: 109px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 24px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.desktop .log-out {
+  position: absolute;
+  width: 29px;
+  height: 29px;
+  top: 429px;
+  left: 55px;
+}
+
+.desktop .text-wrapper-12 {
+  position: absolute;
+  width: 142px;
+  height: 23px;
+  top: 432px;
+  left: 107px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 24px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.desktop .text-wrapper-13 {
+  position: absolute;
+  width: 400px;
+  top: 33px;
+  left: 319px;
+  font-family: "ABeeZee-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .overlap-4 {
+  position: absolute;
+  width: 858px;
+  height: 630px;
+  top: 216px;
+  left: 313px;
+}
+
+.desktop .img {
+  position: absolute;
+  width: 746px;
+  height: 587px;
+  top: 0;
+  left: 36px;
+}
+
+.desktop .media {
+  position: absolute;
+  width: 664px;
+  height: 325px;
+  top: 153px;
+  left: 74px;
+  background-color: #dddddd;
+  border-radius: 10px;
+}
+
+.desktop .avatar-block-4 {
+  width: 141px;
+  height: 47px;
+  top: 43px;
+  left: 73px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: absolute;
+}
+
+.desktop .avatar-4 {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-image: url(./img/image.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.desktop .heart {
+  position: absolute;
+  width: 31px;
+  height: 29px;
+  top: 515px;
+  left: 432px;
+}
+
+.desktop .message-square {
+  position: absolute;
+  width: 31px;
+  height: 31px;
+  top: 517px;
+  left: 527px;
+}
+
+.desktop .text-wrapper-14 {
+  position: absolute;
+  width: 30px;
+  height: 22px;
+  top: 518px;
+  left: 465px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.desktop .text-wrapper-15 {
+  width: 29px;
+  top: 518px;
+  left: 567px;
+  color: #000000;
+  font-size: 24px;
+  position: absolute;
+  height: 23px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.desktop .bookmark {
+  position: absolute;
+  width: 29px;
+  height: 32px;
+  top: 513px;
+  left: 640px;
+}
+
+.desktop .text-wrapper-16 {
+  position: absolute;
+  width: 266px;
+  top: 89px;
+  left: 82px;
+  font-family: var(--m3-body-large-font-family);
+  font-weight: var(--m3-body-large-font-weight);
+  color: #000000;
+  font-size: var(--m3-body-large-font-size);
+  letter-spacing: var(--m3-body-large-letter-spacing);
+  line-height: var(--m3-body-large-line-height);
+  font-style: var(--m3-body-large-font-style);
+}
+
+.desktop .ellipse {
+  position: absolute;
+  width: 71px;
+  height: 71px;
+  top: 559px;
+  left: 0;
+  background-color: #2c2c2c;
+  border-radius: 35.5px;
+}
+
+.desktop .edit {
+  position: absolute;
+  width: 39px;
+  height: 39px;
+  top: 575px;
+  left: 16px;
+}
+
+.desktop .polygon {
+  position: absolute;
+  width: 29px;
+  height: 49px;
+  top: 60px;
+  left: 689px;
+}
+
+.desktop .rectangle-4 {
+  position: absolute;
+  width: 150px;
+  height: 75px;
+  top: 98px;
+  left: 570px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 2px solid;
+  border-color: #000000;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.desktop .text-wrapper-17 {
+  position: absolute;
+  width: 266px;
+  top: 107px;
+  left: 587px;
+  font-family: var(--m3-body-large-font-family);
+  font-weight: var(--m3-body-large-font-weight);
+  color: #000000;
+  font-size: var(--m3-body-large-font-size);
+  letter-spacing: var(--m3-body-large-letter-spacing);
+  line-height: var(--m3-body-large-line-height);
+  font-style: var(--m3-body-large-font-style);
+}
+
+.desktop .text-wrapper-18 {
+  position: absolute;
+  width: 266px;
+  top: 135px;
+  left: 592px;
+  font-family: var(--m3-body-large-font-family);
+  font-weight: var(--m3-body-large-font-weight);
+  color: #000000;
+  font-size: var(--m3-body-large-font-size);
+  letter-spacing: var(--m3-body-large-letter-spacing);
+  line-height: var(--m3-body-large-line-height);
+  font-style: var(--m3-body-large-font-style);
+}
+
+.desktop .ri-heart-fill {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 513px;
+  left: 430px;
+}
+
+.desktop .overlap-5 {
+  position: absolute;
+  width: 527px;
+  height: 40px;
+  top: 125px;
+  left: 350px;
+}
+
+.desktop .group-3 {
+  position: absolute;
+  width: 241px;
+  height: 30px;
+  top: 6px;
+  left: 0;
+}
+
+.desktop .text-wrapper-19 {
+  position: absolute;
+  width: 202px;
+  height: 23px;
+  top: 3px;
+  left: 37px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.desktop .img-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0;
+  left: 0;
+}
+
+.desktop .group-4 {
+  position: absolute;
+  width: 241px;
+  height: 30px;
+  top: 6px;
+  left: 154px;
+}
+
+.desktop .lucide-video {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: 337px;
+}
+
+.desktop .text-wrapper-20 {
+  position: absolute;
+  width: 134px;
+  height: 30px;
+  top: 5px;
+  left: 393px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+}
+
+.desktop .line {
+  position: absolute;
+  width: 142px;
+  height: 1px;
+  top: 173px;
+  left: 324px;
+  object-fit: cover;
+}
+
+.desktop .bookmark-2 {
+  position: absolute;
+  width: 29px;
+  height: 32px;
+  top: 133px;
+  left: 1059px;
+}
+
+.desktop .text-wrapper-21 {
+  position: absolute;
+  width: 134px;
+  height: 30px;
+  top: 132px;
+  left: 915px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0.50px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+:root {
+  --color-text-subtext: rgba(154, 154, 154, 1);
+  --main-white: rgba(255, 255, 255, 1);
+  --text-font-family: "Inter", Helvetica;
+  --text-font-weight: 700;
+  --text-font-size: 24px;
+  --text-letter-spacing: 0px;
+  --text-line-height: normal;
+  --text-font-style: normal;
+  --body-texts-text-1-font-family: "Poppins", Helvetica;
+  --body-texts-text-1-font-weight: 400;
+  --body-texts-text-1-font-size: 12px;
+  --body-texts-text-1-letter-spacing: 0px;
+  --body-texts-text-1-line-height: 16px;
+  --body-texts-text-1-font-style: normal;
+  --body-strong-font-family: "Inter", Helvetica;
+  --body-strong-font-weight: 600;
+  --body-strong-font-size: 16px;
+  --body-strong-letter-spacing: 0px;
+  --body-strong-line-height: 139.9999976158142%;
+  --body-strong-font-style: normal;
+  --body-base-font-family: "Inter", Helvetica;
+  --body-base-font-weight: 400;
+  --body-base-font-size: 16px;
+  --body-base-letter-spacing: 0px;
+  --body-base-line-height: 139.9999976158142%;
+  --body-base-font-style: normal;
+  --m3-body-large-font-family: "Roboto", Helvetica;
+  --m3-body-large-font-weight: 400;
+  --m3-body-large-font-size: 16px;
+  --m3-body-large-letter-spacing: 0.5px;
+  --m3-body-large-line-height: 24px;
+  --m3-body-large-font-style: normal;
+}
+
+.desktop .video-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 125px;
+  /* điều chỉnh cho icon nằm cùng hàng với "Video" */
+  left: 880px;
+  /* điều chỉnh để cách icon “Ảnh” phù hợp */
+}
+
+
+/* ================================================
+   1) Phần CSS bạn đã có – giữ nguyên mọi thứ
+   ================================================ */
+.desktop .action-wrapper {
+  position: absolute;
+  /* Thay đổi: phải là absolute, không phải relative */
+  display: flex;  /* Khi hiện: flex để chữ+icon nằm ngang */
+  align-items: center;
+  /* Căn giữa theo chiều dọc */
+  width: 120px;   /* Giữ nguyên width bạn muốn */
+  gap: 8px;       /* Khoảng cách giữa chữ và icon */
+  z-index: 101;   /* Nằm trên khung trắng */
+}
+
+/* Vị trí cho “Chỉnh sửa” */
+.desktop .action-edit {
+  top: 107px;
+  left: 587px;
+}
+
+/* Vị trí cho “Xóa” */
+.desktop .action-delete {
+  top: 135px;
+  left: 592px;
+  padding-right: 10px; /* nếu cần giữ */
+}
+
+/* Bỏ position:absolute cũ của text-wrapper */
+.desktop .text-wrapper-17,
+.desktop .text-wrapper-18 {
+  position: static;
+  width: 100px;
+  /* Giữ nguyên font, màu, size */
+}
+
+/* Kích thước cho icon bên phải */
+.desktop .icon-right {
+  width: 16px;  /* hoặc 20px nếu muốn icon to hơn */
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ================================================
+   2) Phần mới: Ẩn mặc định và chỉ show khi click
+   ================================================ */
+
+/* (2.1) Ẩn khung trắng và action-wrapper từ đầu */
+.desktop .rectangle-4,
+.desktop .action-wrapper {
+  display: none;
+}
+
+/* (2.2) Khi có class .show-popup → hiển thị
+    - rectangle-4 hiển thị block
+    - action-wrapper hiển thị flex (vì chúng ta có display:flex ở selector trên) */
+.desktop .rectangle-4.show-popup,
+.desktop .action-wrapper.show-popup {
+  display: block;
+}
+.desktop .action-wrapper.show-popup {
+  display: flex;
+}
+
+/* (2.3) Cấu hình khung trắng (rectangle-4) để “ôm” vừa khít action-edit & action-delete */
+.desktop .rectangle-4 {
+  position: absolute;
+  /* Tính toán để khung trắng “bao” vừa hai dòng:
+     - “Chỉnh sửa” ở top 107 → lùi lên 6px (padding-top) → top = 107 - 6 = 101
+     - “Chỉnh sửa” left 587 → lùi ra 7px (padding-left) → left = 587 - 7 = 580
+     - action-wrapper width 120px + padding trái/phải mỗi bên 7px → width = 134px
+     - 2 dòng cách nhau 28px (135 - 107), mỗi dòng cao ~16px, padding trên 6px, padding dưới 6px → total height = 72px
+  */
+  top: 101px;
+  left: 580px;
+  width: 134px;
+  height: 72px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #000000;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 100; /* dưới action-wrapper */
+}
