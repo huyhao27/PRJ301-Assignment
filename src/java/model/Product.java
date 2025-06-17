@@ -4,8 +4,7 @@
  */
 package model;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.sql.*;
 
 /**
  *
@@ -17,15 +16,15 @@ public class Product {
     private String productName;
     private String image;
     private String description;
-    private BigDecimal price;
+    private double price;
     private int quantity;
     private Integer categoryId;
-    private LocalDateTime createdAt;
+    private Timestamp createdAt;
 
-    public Product() {}
+    public Product() {
+    }
 
-    public Product(int productId, int sellerId, String productName, String image, String description,
-                   BigDecimal price, int quantity, Integer categoryId, LocalDateTime createdAt) {
+    public Product(int productId, int sellerId, String productName, String image, String description, double price, int quantity, Integer categoryId, Timestamp createdAt) {
         this.productId = productId;
         this.sellerId = sellerId;
         this.productName = productName;
@@ -35,14 +34,6 @@ public class Product {
         this.quantity = quantity;
         this.categoryId = categoryId;
         this.createdAt = createdAt;
-    }
-    
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
     }
 
     public int getProductId() {
@@ -85,6 +76,14 @@ public class Product {
         this.description = description;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public int getQuantity() {
         return quantity;
     }
@@ -101,12 +100,15 @@ public class Product {
         this.categoryId = categoryId;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
+
+    
+    
     
 }
