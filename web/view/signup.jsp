@@ -8,7 +8,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SecondUni - SignUp</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/login.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/signup.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/global.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/responsive.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/icon/themify-icons/themify-icons.css">
@@ -16,7 +16,7 @@
 
     <body>
         <div class="container">
-            <img class="logo" src="${pageContext.request.contextPath}/view/assets/images/logo/Logo_Deleted_Background.png" alt="Logo" />
+            <img class="logo" src="${pageContext.request.contextPath}/view/images/logo/Logo_Deleted_Background.png" alt="Logo" />
 <!--            <div >
                 <a href="changepass.jsp" class="home-btn">
                     <i class="ti-home"></i>
@@ -50,7 +50,7 @@
                 </form>
 
                 <div class="login-signup">
-                    Bạn đã có tài khoản rồi? <a href="login.jsp">Đăng nhập</a>
+                    Bạn đã có tài khoản rồi? <a href="${pageContext.request.contextPath}/view/login.jsp">Đăng nhập</a>
                 </div>
 
                 <div class="login-alt">
@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <script src="${pageContext.request.contextPath}/asset/js/show-password.js"></script>
+        <script src="${pageContext.request.contextPath}/view/assets/js/show-password.js"></script>
     </body>
 
 </html>

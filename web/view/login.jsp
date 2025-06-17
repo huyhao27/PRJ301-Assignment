@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="container">
-            <img class="logo" src="${pageContext.request.contextPath}/view/assets/images/logo/Logo_Deleted_Background.png" alt="Logo" />
+            <img class="logo" src="${pageContext.request.contextPath}/view/images/logo/Logo_Deleted_Background.png" alt="Logo" />
 <!--            <div >
                 <a href="#" class="home-btn">
                     <i class="ti-home"></i>
@@ -59,13 +59,13 @@
                 </div>
 
                 <div class="login-signup">
-                    Bạn chưa có tài khoản? <a href="/view/signup.jsp">Đăng ký</a>
+                    Bạn chưa có tài khoản? <a href="${pageContext.request.contextPath}/view/signup.jsp">Đăng ký</a>
                 </div>
             </div>
         </div>
 
 
-        <script src="${pageContext.request.contextPath}/asset/js/show-password.js"></script>
+        <script src="${pageContext.request.contextPath}/view/assets/js/show-password.js"></script>
 
     </body>
 </html>
