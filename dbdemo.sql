@@ -1,17 +1,17 @@
 ﻿-- Drop the database if it exists
-/*IF EXISTS (SELECT name FROM sys.databases WHERE name = 'SencondUniDB')
+IF EXISTS (SELECT name FROM sys.databases WHERE name = 'SecondUniDB')
 BEGIN
-    ALTER DATABASE SencondUniDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    DROP DATABASE SencondUniDB;
+    ALTER DATABASE SecondUniDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE SecondUniDB;
 END
 GO
 
-CREATE DATABASE SencondUniDB;
+CREATE DATABASE SecondUniDB;
 GO
 
-USE SencondUniDB;
+USE SecondUniDB;
 GO
-*/
+
 
 -- Accounts
 CREATE TABLE Accounts (
