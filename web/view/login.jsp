@@ -65,7 +65,7 @@
         </div>
 
 
-        <script src="${pageContext.request.contextPath}/view/assets/js/show-password.js"></script>
+        <script src="${pageContext.request.contextPath}/view/assets/js/show_password.js"></script>
 
     </body>
 </html>

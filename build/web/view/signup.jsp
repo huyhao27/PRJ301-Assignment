@@ -1,9 +1,7 @@
-
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,20 +11,15 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/responsive.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/icon/themify-icons/themify-icons.css">
     </head>
-
     <body>
         <div class="container">
-            <img class="logo" src="${pageContext.request.contextPath}/view/images/logo/Logo_Deleted_Background.png" alt="Logo" />
-<!--            <div >
-                <a href="changepass.jsp" class="home-btn">
-                    <i class="ti-home"></i>
-                </a>
-            </div>-->
+            <img class="logo" src="${pageContext.request.contextPath}/view/images/logo/Logo_Deleted_Background.png" alt="Logo"/>
             <div class="signup-box">
                 <h2 class="box-title">Đăng ký</h2>
 
-                <form action="signup" method="post">
-                    
+                <form id="signupForm" action="signup" method="post">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
                     <div class="input-group">
                         <input type="text" name="name" placeholder="Tên hiển thị" required>
                     </div>
@@ -41,10 +34,9 @@
                            style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                     </div>
 
-                    <%-- Hiện lỗi nếu có query string ?error=username --%>
-                    <% if ("username".equals(request.getParameter("error"))) { %>
-                    <div class="error">Email này đã được sử dụng!</div>
-                    <% } %>
+                    <c:if test="${not empty error}">
+                        <div class="error">${error}</div>
+                    </c:if>
 
                     <button type="submit" class="submit-btn">Đăng ký</button>
                 </form>
@@ -67,8 +59,9 @@
             </div>
         </div>
 
-        <script src="${pageContext.request.contextPath}/view/assets/js/show-password.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+        <script src="${pageContext.request.contextPath}/view/assets/js/validate_sign_up.js"></script>
+        <script src="${pageContext.request.contextPath}/view/assets/js/show_password.js"></script>
     </body>
-
 </html>
-

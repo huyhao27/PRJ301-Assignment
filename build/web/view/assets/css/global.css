@@ -21,6 +21,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     color: #03BE2C;
     margin-bottom: 2em;
 }
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin: 0px 0 0.75em 0 ;
+}
 
 /*=====Box-title=====*/
 .box-title {
