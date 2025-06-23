@@ -82,16 +82,20 @@
         messages.scrollTop = messages.scrollHeight;
     }
 
+    let currentChatUserId = null;
+
     function loadConversation(contactElem) {
         const userId = contactElem.getAttribute('data-userid');
+        currentChatUserId = userId;
+
         document.querySelector('input[name="receiver"]').value = userId;
 
         fetch('load-messages?userId=' + userId)
-            .then(response => response.text())
-            .then(html => {
-                document.querySelector('.messages').innerHTML = html;
-                scrollToBottom();
-            });
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector('.messages').innerHTML = html;
+                    scrollToBottom();
+                });
 
         document.querySelectorAll('.contact').forEach(c => c.classList.remove('active'));
         contactElem.classList.add('active');
@@ -102,14 +106,16 @@
         const receiverId = document.querySelector('input[name="receiver"]').value;
         const content = document.querySelector('input[name="content"]').value.trim();
 
-        if (!receiverId) return alert("⚠ Bạn chưa chọn người để gửi.");
-        if (content === "") return alert("⚠ Tin nhắn không được để trống.");
+        if (!receiverId)
+            return alert("⚠ Bạn chưa chọn người để gửi.");
+        if (content === "")
+            return alert("⚠ Tin nhắn không được để trống.");
 
         const formData = new FormData();
         formData.append("receiver", receiverId);
         formData.append("content", content);
         console.log("Receiver:", receiverId);
-console.log("Content:", content);
+        console.log("Content:", content);
 
         fetch("chat", {
             method: "POST",
@@ -128,7 +134,8 @@ console.log("Content:", content);
                 const contactElem = document.querySelector(`.contact[data-userid="${receiverId}"]`);
                 if (contactElem) {
                     const lastMsgElem = contactElem.querySelector('.last-message');
-                    if (lastMsgElem) lastMsgElem.textContent = content;
+                    if (lastMsgElem)
+                        lastMsgElem.textContent = content;
                 }
             } else {
                 console.error("Gửi thất bại với mã trạng thái:", response.status);
@@ -139,4 +146,18 @@ console.log("Content:", content);
             alert("⚠ Có lỗi khi gửi tin nhắn.");
         });
     });
+
+    function pollMessages() {
+        if (!currentChatUserId)
+            return;
+
+        fetch('load-messages?userId=' + currentChatUserId)
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector('.messages').innerHTML = html;
+                    scrollToBottom();
+                });
+    }
+    setInterval(pollMessages, 2000);
+
 </script>
