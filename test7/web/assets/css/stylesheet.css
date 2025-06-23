@@ -1224,14 +1224,16 @@ a>span {
 }
 
 .delete-btn {
-    background: none;
+    background-color:#ba1f00;
+    padding: 15px;
+    border-radius: 5px;
     border: none;
-    color: #888;
+    color: #fff;
     cursor: pointer;
 }
 
 .delete-btn:hover {
-    color: #ba1f00;
+    opacity: 0.8;
 }
 
 .footer-left {

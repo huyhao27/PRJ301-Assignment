@@ -102,6 +102,7 @@
                 const checkboxes = document.querySelectorAll(".cart-item input[type='checkbox']");
                 const quantityInputs = document.querySelectorAll(".quantity-input");
                 const totalPriceEl = document.querySelector(".total-price strong");
+                const cartId = <%= cart.getCartId() %>; // ✅ moved here to be global
 
                 function updateTotal() {
                     let total = 0;
@@ -152,8 +153,6 @@
 
                 updateTotal();
 
-                const cartId = <%= cart.getCartId() %>;
-
                 quantityInputs.forEach(input => {
                     const row = input.closest(".cart-item");
                     const productId = row.querySelector("input[type='checkbox']").value;
@@ -170,23 +169,50 @@
                 });
 
                 function updateQuantity(productId, change, inputEl) {
-                    fetch('update-cart-quantity', {
+                    fetch('<%= request.getContextPath() %>/update-cart-quantity', {
                         method: 'POST',
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                         body: `cartId=${cartId}&productId=${productId}&addAmount=${change}`
                     })
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data.success) {
-                                    const newValue = parseInt(inputEl.value) + change;
-                                    inputEl.value = newValue > 0 ? newValue : 1;
-                                    updateTotal();
-                                } else {
-                                    alert("Cập nhật thất bại!");
-                                }
-                            })
-                            .catch(() => alert("Lỗi khi kết nối đến server."));
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            const newValue = parseInt(inputEl.value) + change;
+                            inputEl.value = newValue > 0 ? newValue : 1;
+                            updateTotal();
+                        } else {
+                            alert("Cập nhật thất bại!");
+                        }
+                    })
+                    .catch(() => alert("Lỗi khi kết nối đến server."));
                 }
+
+                // ✅ Moved inside DOMContentLoaded and use cartId
+                document.querySelectorAll(".delete-btn").forEach(btn => {
+                    btn.addEventListener("click", function () {
+                        const row = btn.closest(".cart-item");
+                        const productId = row.querySelector("input[type='checkbox']").value;
+
+                        if (!confirm("Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng không?"))
+                            return;
+
+                        fetch("<%= request.getContextPath() %>/delete-cart-item", {
+                            method: "POST",
+                            headers: {"Content-Type": "application/x-www-form-urlencoded"},
+                            body: `cartId=${cartId}&productId=${productId}`
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                row.remove();
+                                updateTotal();
+                            } else {
+                                alert("Xóa thất bại!");
+                            }
+                        })
+                        .catch(() => alert("Lỗi kết nối khi xóa sản phẩm."));
+                    });
+                });
 
             });
         </script>
