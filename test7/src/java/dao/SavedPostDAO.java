@@ -41,8 +41,8 @@ public class SavedPostDAO extends DBContext {
                     list.add(new Post(
                             rs.getInt("postId"),
                             rs.getInt("userId"),
-                            rs.getString("title"),
                             rs.getString("content"),
+                            rs.getString("image"),
                             rs.getTimestamp("createdAt")
                     ));
                 }

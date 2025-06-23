@@ -135,4 +135,34 @@ public class PostDAO extends DBContext {
             return false;
         }
     }
+    
+    public ArrayList<Post> getAllPostsByUserAndFollowing(int userId) {
+        ArrayList<Post> list = new ArrayList<>();
+        String sql = "SELECT p.postId, p.userId, p.content, p.image, p.createdAt "
+                + "FROM Posts p "
+                + "WHERE p.userId = ? OR p.userId IN ("
+                + "SELECT followingId FROM Follows WHERE followerId = ?"
+                + ") ORDER BY p.createdAt DESC";
+
+        try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, userId);
+            ps.setInt(2, userId);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Post p = new Post();
+                    p.setPostId(rs.getInt("postId"));
+                    p.setUserId(rs.getInt("userId"));
+                    p.setContent(rs.getString("content"));
+                    p.setImage(rs.getString("image"));
+                    p.setCreatedAt(rs.getTimestamp("createdAt"));
+                    list.add(p);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
 }
