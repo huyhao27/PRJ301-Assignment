@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class DBContext {
 
     private static final String USERNAME_DB = "sa";    
-    private static final String PASSWORD_DB = "123";
+    private static final String PASSWORD_DB = "12345";
     private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=SecondUniDB;encrypt=false;trustServerCertificate=true";
 
     public DBContext() {
